@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Santanu",
+        "username":"santanu",
+        "password": "santanu",
+        "type": "admin",
+        "phone": [
+            "9090897890"
+        ],
+        "email": "some@some.in"
+    },
+    {
+        "name": "Biswajit",
+        "username":"biswajit",
+        "password": "biswajit",
+        "type": "user",
+        "phone": [
+            "9090897890"
+        ],
+        "email": "some@some.in"
+    }
+]

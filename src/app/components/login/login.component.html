@@ -1,0 +1,21 @@
+<div fxLayout="row" fxFill fxLayoutAlign="center center" [formGroup]="login">
+    <div fxLayout="column" fxLayoutGap="20px" fxFlex="450px" class="login-box">
+        <div>
+            <h2>Login</h2>
+        </div>
+        <div fxLayout="column" >
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="username" type="email" placeholder="email" #username>
+              </mat-form-field>
+              <mat-form-field appearance="fill"  fxFlex>
+                <mat-label>Password</mat-label>
+                <input matInput  formControlName="password" type="password" placeholder="password" #password>
+              </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <span>Forgot password?</span>
+            <button mat-raised-button color="primary" (click)="loginFunc()">Login</button>  
+        </div>
+    </div>
+</div>
