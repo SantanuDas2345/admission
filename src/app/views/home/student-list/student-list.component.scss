@@ -1,0 +1,11 @@
+
+.student {
+    padding: 20px; 
+    margin-bottom: 20px;
+    .accepted {
+        background-color: rgba(0, 255, 0, 0.237) !important;
+    }
+    .declined {
+        background-color: rgba(255, 0, 0, 0.249) !important;
+    }
+}

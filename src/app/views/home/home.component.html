@@ -3,11 +3,12 @@
     <div fxFlex fxLayout="column" fxLayoutAlig="start start">
            <app-navbar></app-navbar>
            <div class="container" fxLayout="column" fxLayoutGap="10px">
-               <div *ngFor="let item of data" style="background-color: #eee; padding: 5px ">
+            <router-outlet></router-outlet>
+               <!--div *ngFor="let item of data" style="background-color: #eee; padding: 5px ">
                     <div>
                         {{item.title}}
                     </div>
-               </div>
+               </div-->
            </div>
     </div>
 </div>

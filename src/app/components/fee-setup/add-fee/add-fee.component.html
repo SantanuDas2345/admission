@@ -1,0 +1,16 @@
+<form class="example-form" [formGroup]="feeForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>class</mat-label>
+      <input matInput formControlName="std" placeholder="Ex. Pizza" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Admission</mat-label>
+        <input matInput formControlName="admission"  placeholder="Ex. Pizza">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tuition fee </mat-label>
+        <input matInput  formControlName="tuition" placeholder="Ex. Pizza">
+      </mat-form-field>
+      <button mat-button color="primary">Cancel</button>
+      <button mat-raised-button color="primary" (click)="addClass()">Add</button>
+  </form>

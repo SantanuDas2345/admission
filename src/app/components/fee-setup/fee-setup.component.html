@@ -1,0 +1,23 @@
+<div>
+    <button (click)="addclass()">Add class</button>
+</div>
+<table>
+    <tr>
+      <th>SL NO</th>
+      <th>Class</th>
+      <th>Admission</th>
+      <th>Tuition</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let fe of fee; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{fe.std}}</td>
+      <td>{{fe.admission}}</td>
+      <td>{{fe.tuition}}</td>
+      <td>
+        <button>Edit</button>
+        <button (click)="deleteFee(fe.std)">Delete</button>
+      </td>
+    </tr>
+    
+  </table>

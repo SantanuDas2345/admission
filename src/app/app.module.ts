@@ -22,16 +22,21 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FooterComponent } from './components/footer/footer.component';
 import { ApiService } from './services/api.service';
+import { StudentListComponent } from './views/home/student-list/student-list.component';
+import { SettingsComponent } from './views/home/settings/settings.component';
+import { FeeSetupComponent } from './components/fee-setup/fee-setup.component';
+import { AddFeeComponent } from './components/fee-setup/add-fee/add-fee.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent,
     LoginComponent,
-    NavbarComponent,
-    SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    SettingsComponent,
+    FeeSetupComponent,
+    AddFeeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { ApiService } from './services/api.service';
     ReactiveFormsModule,
     HttpClientModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,

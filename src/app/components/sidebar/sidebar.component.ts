@@ -10,23 +10,11 @@ export class SidebarComponent implements OnInit {
   sidebar: any = [
     {
       name: "Student List",
-      url: ''
+      url: 'student-list'
     },
     {
-      name: 'Class Distribution',
-      url: ''
-    },
-    {
-      name: 'Admission Fee',
-      url: ''
-    },
-    {
-      name: 'Something',
-      url: ''
-    },
-    {
-      name: 'Final',
-      url: ''
+      name: 'Settings',
+      url: 'settings'
     }
   ]
   constructor() { }

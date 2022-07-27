@@ -1,5 +1,5 @@
-<mat-list role="list">
-    <mat-list-item role="listitem" *ngFor="let item of sidebar">
+<mat-selection-list role="list" [multiple]="false" #list>
+    <mat-list-option role="listitem"  *ngFor="let item of sidebar" [routerLink]="[item.url]" [value]="item.name">
       {{item.name}}
-    </mat-list-item>
-  </mat-list>
+    </mat-list-option>
+</mat-selection-list>
