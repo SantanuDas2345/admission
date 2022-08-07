@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,14 +6,24 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
   //url: string = "https://jsonplaceholder.typicode.com/"
-  url: string = "http://localhost:8080/"
-  constructor(private http: HttpClient) { }
+  url: string = "http://localhost:8080/";
+  token: string ="";
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token') || "";
+
+  }
 
   getData(endpoint: string) {
-    return this.http.get(this.url  + endpoint);
+    const headers = new HttpHeaders({
+        "Authorization": this.token
+    });
+    return this.http.get(this.url  + endpoint, {headers: headers});
   }
   postData(endpoint: string, params: any) {
-    return this.http.post(this.url+endpoint, params);
+    const headers = new HttpHeaders({
+      "Authorization": this.token
+    });
+    return this.http.post(this.url+endpoint, params, {headers: headers});
   }
 
 }

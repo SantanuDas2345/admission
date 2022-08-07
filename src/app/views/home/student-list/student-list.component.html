@@ -1,4 +1,5 @@
 <div>
+    <button (click)="addStudent()">Add</button>
     <div fxLayout="row" fxLayoutAlign="start start" [ngClass]="'student accepted'" *ngFor="let student of studentList">
         <div fxlayout="column" fxFlex="200" fxLayoutGap="8px" fxLayoutAlign="space-between start">
             <div>
