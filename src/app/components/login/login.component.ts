@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +11,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   login: FormGroup;
-  constructor(public fb: FormBuilder, public http: HttpClient, public router: Router) {
+  msg: string = "";
+  constructor(public fb: FormBuilder, public http: HttpClient, public router: Router, public api: ApiService) {
     this.login = this.fb.group({
-      username: [''],
-      password: ['']
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
   }
-  loginFunc() {
-    this.http.get('./assets/users.json').subscribe((data: any) => {
-      if(data) {
-        let chek = data.filter((item: any) => item.password === this.login.value.password && item.username === this.login.value.username);
-        if(chek.length == 1) {
-         this.router.navigate(['/dashboard']);
+  loginFunc(data: any) {
+    if(data && this.login.valid) {
+      this.api.postData('login', data).subscribe((next: any) => {
+        if(next && !next.error) {
+          localStorage.setItem('token', next.token);
+          this.router.navigate(['/dashboard']);
         } else {
-          console.log("Error");
+          this.msg = "Error! username or password is not valid";
         }
-      }
-    });
+      });
+    }
   }
 }

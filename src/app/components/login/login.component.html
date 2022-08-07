@@ -7,15 +7,23 @@
             <mat-form-field appearance="fill" fxFlex>
                 <mat-label>Email</mat-label>
                 <input matInput formControlName="username" type="email" placeholder="email" #username>
+                <mat-error *ngIf="login.get('username')?.valid">sometjoi g</mat-error>
               </mat-form-field>
               <mat-form-field appearance="fill"  fxFlex>
                 <mat-label>Password</mat-label>
                 <input matInput  formControlName="password" type="password" placeholder="password" #password>
-              </mat-form-field>
+                <mat-error *ngIf="login.get('password')?.valid">Something</mat-error>
+            </mat-form-field>
         </div>
+        <!-- <div *ngIf="login.invalid" [ngClass]="'error'">
+            <div fxLayout="row" fxlLayoutAlign="space-between top" fxLayoutGap="16px">
+                <mat-icon>error</mat-icon>
+                <span>{{msg}} </span>
+            </div>
+        </div> -->
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <span>Forgot password?</span>
-            <button mat-raised-button color="primary" (click)="loginFunc()">Login</button>  
+            <button mat-raised-button color="primary" (click)="loginFunc(login.value)">Login</button>  
         </div>
     </div>
 </div>
