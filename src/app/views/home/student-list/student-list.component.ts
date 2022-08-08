@@ -16,24 +16,15 @@ export class StudentListComponent implements OnInit {
       }
     })
   }
-  addStudent() {
-    const data = {
-      name: "Santanu",
-      email: "santa@gmail.com",
-      phone:"7898",
-      dob: "2022-01-17",
-      indentication_mark:"Someting ",
-      blood_group:"a+"
-    }
-    this.api.postData('create-student', data).subscribe((next) => {
-      console.log(next);
-    })
-  }
+  
   declineStudent(student: any) {
     student.action = -1
   }
   acceptStudent(student: any) {
     student.action = 1
+  }
+  studentEmitted(data: any) {
+    this.studentList.push(data);
   }
 
 }

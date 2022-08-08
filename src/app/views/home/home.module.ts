@@ -4,7 +4,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
-import { NativeDateAdapter } from '@angular/material/core';
+import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
@@ -17,8 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SettingsComponent } from './settings/settings.component';
+import { AddStudentComponent } from './add-student/add-student.component';
 
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 const routes: Routes = [
   
    {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'student-list',
         component: StudentListComponent
+      },
+      {
+        path: 'add-student',
+        component: AddStudentComponent
       },
       {
         path: 'settings',
@@ -53,7 +58,7 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  declarations: [ StudentListComponent, HomeComponent, SidebarComponent, NavbarComponent],
+  declarations: [ StudentListComponent, HomeComponent, SidebarComponent, NavbarComponent, AddStudentComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -66,7 +71,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
+  ],
+  providers: [
+    MatDatepickerModule
   ]
 })
 export class HomeModule { }

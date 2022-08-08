@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutGap="20px" [formGroup]="student">
+    <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text" placeholder="name" #name>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="email" #email>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" type="text" placeholder="phone" #phone>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput formControlName="dob" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Identfication mark</mat-label>
+        <input matInput formControlName="identification_mark" type="text" placeholder="phone" #phone>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Blood group</mat-label>
+        <input matInput formControlName="blood_group" type="text" placeholder="phone" #phone>
+      </mat-form-field>
+      
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="20px">
+    <button mat-button color="primary" >Clear</button>
+    <button mat-raised-button color="primary" (click)="addStudent(student.value)">Add Student</button>
+</div>

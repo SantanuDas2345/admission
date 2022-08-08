@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
       name: "Student List",
       url: 'student-list'
     },
+  
     {
       name: 'Settings',
       url: 'settings'

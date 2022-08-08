@@ -1,17 +1,22 @@
-<div>
-    <button (click)="addStudent()">Add</button>
-    <div fxLayout="row" fxLayoutAlign="start start" [ngClass]="'student accepted'" *ngFor="let student of studentList">
-        <div fxlayout="column" fxFlex="200" fxLayoutGap="8px" fxLayoutAlign="space-between start">
-            <div>
-                <h2>{{student.name}}</h2>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxFlex="40">
+        <app-add-student (studentEmit)="studentEmitted($event)"></app-add-student>
+    </div>
+    <div fxFlex  fxLayout="column" fxLayoutAlign="start start" [ngClass]="'student accepted'" >
+        <h2>Stduent list</h2>
+        <div style="width: 100%; height: calc(100vh - 250px); overflow-y: scroll;">
+            <div fxlayout="column" style="width: 100%" fxLayoutGap="8px" fxLayoutAlign="space-between start" *ngFor="let student of studentList">
                 <div>
-                   Date of Birth: {{student.dob | date}}
+                    <h2>{{student.name}}</h2>
+                    <div>
+                       Date of Birth: {{student.dob | date}}
+                    </div>
+                    <div>{{student.action}}</div>
                 </div>
-                <div>{{student.action}}</div>
-            </div>
-            <div fxLayout="row" fxLayoutGap="20px">
-                <button mat-raised-button color="primary" (click)="acceptStudent(student)">Accept</button>
-                <button mat-raised-button color="warn" (click)="declineStudent(student)">Decline</button>
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <button mat-raised-button color="primary" (click)="acceptStudent(student)">Accept</button>
+                    <button mat-raised-button color="warn" (click)="declineStudent(student)">Decline</button>
+                </div>
             </div>
         </div>
     </div>
