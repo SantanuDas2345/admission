@@ -32,5 +32,5 @@
 
 <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="20px">
     <button mat-button color="primary" >Clear</button>
-    <button mat-raised-button color="primary" (click)="addStudent(student.value)">Add Student</button>
+    <button mat-raised-button color="primary" [disabled]="student.invalid" (click)="addStudent(student.value)">Add Student</button>
 </div>

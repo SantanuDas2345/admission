@@ -22,7 +22,7 @@ export class StudentListComponent implements OnInit {
     //api call to decline student 
 
     //put call
-    
+
   }
   acceptStudent(student: any) {
     student.action = 1
@@ -30,5 +30,7 @@ export class StudentListComponent implements OnInit {
   studentEmitted(data: any) {
     this.studentList.push(data);
   }
-
+  deleteStudent(student: any) {
+    console.log(student);
+  }
 }

@@ -12,18 +12,19 @@ export class AddStudentComponent implements OnInit {
   @Output() studentEmit = new EventEmitter();
   constructor(public api: ApiService, public fb: FormBuilder) {
     this.student = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: ['', [Validators.required,  Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       dob: ['', Validators.required],
       identification_mark: ['', Validators.required],
-      blood_group: ['', Validators.required]
+      blood_group: ['', [Validators.required, Validators.pattern("^(o|a|b|ab)(\\+|-)ve$")]]
     })
   }
 
   ngOnInit(): void {
   }
   addStudent(data: any) {
+
     this.api.postData('create-student', data).subscribe((next) => {
       console.log(next);
       if(next) {

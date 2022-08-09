@@ -5,16 +5,26 @@
     <div fxFlex  fxLayout="column" fxLayoutAlign="start start"  >
         <h2>Stduent list</h2>
         <div style="width: 100%; height: calc(100vh - 250px); overflow-y: scroll;">
-            <div fxlayout="column" style=" margin: 10px;padding: 10px; border-bottom: 2px solid #777" [ngClass]="{'accepted': student.action == 1}" fxLayoutGap="8px" fxLayoutAlign="space-between start" *ngFor="let student of studentList">
-                <div>
-                    <h2>{{student.name}}</h2>
+            <div fxlayout="column" style=" margin: 10px;padding: 10px; border-bottom: 2px solid #777" [ngClass]="{'accepted': student.action == 1, 'declined': student.action == -1}" fxLayoutGap="8px" fxLayoutAlign="space-between start" *ngFor="let student of studentList">
+                <div fxLayout="column" fxLayoutGap="20px">
                     <div>
-                       Date of Birth: {{student.dob | date}}
+                        <h2>{{student.name}}</h2>
+                        <div>
+                        Date of Birth: {{student.dob | date}}   
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <button mat-raised-button color="primary" (click)="acceptStudent(student)">Accept</button>
+                        <button mat-raised-button color="warn" (click)="declineStudent(student)">Decline</button>
                     </div>
                 </div>
-                <div fxLayout="row" fxLayoutGap="20px">
-                    <button mat-raised-button color="primary" (click)="acceptStudent(student)">Accept</button>
-                    <button mat-raised-button color="warn" (click)="declineStudent(student)">Decline</button>
+                <div fxLayout="column">
+                    <div>
+                        <mat-icon (click)="deleteStudent(student)">delete</mat-icon>
+                        <mat-icon>edit</mat-icon>
+                        <mat-icon>printer</mat-icon>
+                    </div>
+                   
                 </div>
             </div>
         </div>
