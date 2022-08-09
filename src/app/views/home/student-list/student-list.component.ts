@@ -18,7 +18,11 @@ export class StudentListComponent implements OnInit {
   }
   
   declineStudent(student: any) {
-    student.action = -1
+    student.action = -1;
+    //api call to decline student 
+
+    //put call
+    
   }
   acceptStudent(student: any) {
     student.action = 1
